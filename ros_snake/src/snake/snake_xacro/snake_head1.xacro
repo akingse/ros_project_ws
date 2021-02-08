@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<robot name="snake" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="snake_head" params="ID1 ID2">
+        <link name="dummy_link">
+        </link>
+        <link
+            name="base_link">
+            <inertial>
+                <origin
+                    xyz="0.035391 1.5116E-05 2E-07"
+                    rpy="0 0 0" />
+                <mass
+                    value="0.10849" />
+                <inertia
+                    ixx="6.2343E-05"
+                    ixy="-8.9347E-08"
+                    ixz="-2.2641E-10"
+                    iyy="0.00010475"
+                    iyz="-1.7709E-09"
+                    izz="9.276E-05" />
+            </inertial>
+            <visual>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://snake/meshes/base_link.STL" />
+                </geometry>
+                <material
+                    name="">
+                    <color
+                        rgba="0.18431 0.73333 1 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://snake/meshes/base_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="dummy_joint" type="fixed">
+            <parent link="dummy_link"/>
+            <child link="base_link"/>
+        </joint>
+        <link
+            name="Link_${ID1}">
+            <inertial>
+                <origin
+                    xyz="-0.028507 -0.00015484 -3.6726E-05"
+                    rpy="0 0 0" />
+                <mass
+                    value="0.3569" />
+                <inertia
+                    ixx="0.00010484"
+                    ixy="-4.4703E-09"
+                    ixz="1.6891E-07"
+                    iyy="0.0001602"
+                    iyz="2.9787E-10"
+                    izz="0.00014581" />
+            </inertial>
+            <visual>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://snake/meshes/Link_1.STL" />
+                </geometry>
+                <material
+                    name="">
+                    <color
+                        rgba="0.18431 0.73333 1 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://snake/meshes/Link_1.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint
+            name="Joint_${ID1}"
+            type="revolute">
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <parent
+                link="base_link" />
+            <child
+                link="Link_${ID1}" />
+            <axis
+                xyz="0 0 -1" />
+            <limit
+                lower="-1.5"
+                upper="1.5"
+                effort="20"
+                velocity="5" />
+        </joint>
+        <link
+            name="Link_${ID2}">
+            <inertial>
+                <origin
+                    xyz="-0.028507 -0.00015484 -3.6726E-05"
+                    rpy="0 0 0" />
+                <mass
+                    value="0.3569" />
+                <inertia
+                    ixx="0.00010484"
+                    ixy="-4.4703E-09"
+                    ixz="1.6891E-07"
+                    iyy="0.0001602"
+                    iyz="2.9787E-10"
+                    izz="0.00014581" />
+            </inertial>
+            <visual>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://snake/meshes/Link_2.STL" />
+                </geometry>
+                <material
+                    name="">
+                    <color
+                        rgba="0.18431 0.73333 1 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://snake/meshes/Link_2.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint
+            name="Joint_${ID2}"
+            type="revolute">
+            <origin
+                xyz="-0.1059 -0.00015556 0"
+                rpy="1.5708 0 0" />
+            <parent
+                link="Link_${ID1}" />
+            <child
+                link="Link_${ID2}" />
+            <axis
+                xyz="0 0 -1" />
+            <limit
+                lower="-1.5"
+                upper="1.5"
+                effort="20"
+                velocity="5" />
+        </joint>
+        <gazebo reference="base_link">
+            <material>Gazebo/Blue</material>
+            <implicitSpringDamper>1</implicitSpringDamper>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <mu1>0.5</mu1>
+            <mu2>0.5</mu2>
+            <minDepth>0.001</minDepth>
+        </gazebo>
+        <gazebo reference="Link_${ID1}">
+            <material>Gazebo/Orange</material>
+            <implicitSpringDamper>1</implicitSpringDamper>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <mu1>0.5</mu1>
+            <mu2>0.5</mu2>
+            <minDepth>0.001</minDepth>
+        </gazebo>
+        <transmission name="Tran_${ID1}">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="Joint_${ID1}">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="Motor_${ID1}">
+            <mechanicalReduction>1</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </actuator>
+        </transmission>
+        <gazebo reference="Link_${ID2}">
+            <material>Gazebo/Blue</material>
+            <implicitSpringDamper>1</implicitSpringDamper>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <mu1>0.5</mu1>
+            <mu2>0.5</mu2>
+            <minDepth>0.001</minDepth>
+        </gazebo>
+        <transmission name="Tran_${ID2}">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="Joint_${ID2}">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="Motor_${ID2}">
+            <mechanicalReduction>1</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+</robot>

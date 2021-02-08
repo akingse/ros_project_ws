@@ -1,0 +1,8 @@
+prefix=/home/apengse/APengse/Ros/ros_snake/install
+
+Name: snake_moveit_config
+Description: Description of snake_moveit_config
+Version: 0.3.0
+Cflags: 
+Libs: -L/home/apengse/APengse/Ros/ros_snake/install/lib 
+Requires: 

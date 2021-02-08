@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="snake_with_wheel">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.046756 -3.0974E-05 -0.0042756"
+        rpy="0 0 0" />
+      <mass
+        value="0.15651" />
+      <inertia
+        ixx="6.9082E-05"
+        ixy="-8.9347E-08"
+        ixz="1.2498E-06"
+        iyy="0.00011157"
+        iyz="-1.7714E-09"
+        izz="9.5319E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.18431 0.73333 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Wheel_1">
+    <inertial>
+      <origin
+        xyz="-2.7756E-17 1.0582E-16 3.4694E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.019471" />
+      <inertia
+        ixx="4.07E-06"
+        ixy="-8.4946E-21"
+        ixz="9.3271E-24"
+        iyy="2.7774E-06"
+        iyz="1.1729E-11"
+        izz="4.07E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Wheel_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.82353 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Wheel_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel_joint_1"
+    type="continuous">
+    <origin
+      xyz="0.079 0 -0.03"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Wheel_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="100" />
+  </joint>
+  <link
+    name="Link_1">
+    <inertial>
+      <origin
+        xyz="-0.028507 -0.00015484 -3.6726E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.3569" />
+      <inertia
+        ixx="0.00010484"
+        ixy="-4.4703E-09"
+        ixz="1.6891E-07"
+        iyy="0.0001602"
+        iyz="2.9787E-10"
+        izz="0.00014581" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="100"
+      velocity="20" />
+  </joint>
+  <link
+    name="Link_2">
+    <inertial>
+      <origin
+        xyz="-0.029095 -0.0018076 -1.6348E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.40492" />
+      <inertia
+        ixx="0.00011158"
+        ixy="1.2455E-06"
+        ixz="1.6891E-07"
+        iyy="0.00016276"
+        iyz="2.9842E-10"
+        izz="0.00015263" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_2"
+    type="revolute">
+    <origin
+      xyz="-0.1059 -0.00015556 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link_1" />
+    <child
+      link="Link_2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="100"
+      velocity="20" />
+  </joint>
+  <link
+    name="Wheel_2">
+    <inertial>
+      <origin
+        xyz="-5.5511E-17 3.1225E-17 1.9082E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.019471" />
+      <inertia
+        ixx="4.07E-06"
+        ixy="-8.6034E-21"
+        ixz="2.935E-23"
+        iyy="2.7774E-06"
+        iyz="1.1729E-11"
+        izz="4.07E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Wheel_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.82353 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Wheel_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel_joint_2"
+    type="continuous">
+    <origin
+      xyz="-0.0269 -0.030156 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link_2" />
+    <child
+      link="Wheel_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="100" />
+  </joint>
+  <link
+    name="Link_3">
+    <inertial>
+      <origin
+        xyz="-0.028507 -0.00015484 -3.6726E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.3569" />
+      <inertia
+        ixx="0.00010484"
+        ixy="-4.4703E-09"
+        ixz="1.6891E-07"
+        iyy="0.0001602"
+        iyz="2.9787E-10"
+        izz="0.00014581" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_3"
+    type="revolute">
+    <origin
+      xyz="-0.1059 -0.00015556 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link_2" />
+    <child
+      link="Link_3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="100"
+      velocity="20" />
+  </joint>
+  <link
+    name="Link_4">
+    <inertial>
+      <origin
+        xyz="-0.029095 -0.0018076 -1.6348E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.40492" />
+      <inertia
+        ixx="0.00011158"
+        ixy="1.2455E-06"
+        ixz="1.6891E-07"
+        iyy="0.00016276"
+        iyz="2.9842E-10"
+        izz="0.00015263" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_4"
+    type="revolute">
+    <origin
+      xyz="-0.1059 -0.00015556 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link_3" />
+    <child
+      link="Link_4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="100"
+      velocity="20" />
+  </joint>
+  <link
+    name="Wheel_3">
+    <inertial>
+      <origin
+        xyz="0 -5.8981E-17 -1.7347E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.019471" />
+      <inertia
+        ixx="4.07E-06"
+        ixy="-8.4805E-21"
+        ixz="-2.8992E-23"
+        iyy="2.7774E-06"
+        iyz="1.1729E-11"
+        izz="4.07E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Wheel_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.82353 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Wheel_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel_joint_3"
+    type="continuous">
+    <origin
+      xyz="-0.0269 -0.030156 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link_4" />
+    <child
+      link="Wheel_3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="100" />
+  </joint>
+  <link
+    name="Link_5">
+    <inertial>
+      <origin
+        xyz="-0.028507 -0.00015484 -3.6726E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.3569" />
+      <inertia
+        ixx="0.00010484"
+        ixy="-4.4703E-09"
+        ixz="1.6891E-07"
+        iyy="0.0001602"
+        iyz="2.9787E-10"
+        izz="0.00014581" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_5"
+    type="revolute">
+    <origin
+      xyz="-0.1059 -0.00015556 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link_4" />
+    <child
+      link="Link_5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="100"
+      velocity="20" />
+  </joint>
+  <link
+    name="Link_6">
+    <inertial>
+      <origin
+        xyz="-0.028325 -0.0018242 -1.6512E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.4009" />
+      <inertia
+        ixx="0.00011148"
+        ixy="1.2455E-06"
+        ixz="1.6891E-07"
+        iyy="0.00016256"
+        iyz="2.9842E-10"
+        izz="0.00015252" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_6"
+    type="revolute">
+    <origin
+      xyz="-0.1059 -0.00015556 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link_5" />
+    <child
+      link="Link_6" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="100"
+      velocity="20" />
+  </joint>
+  <link
+    name="Wheel_4">
+    <inertial>
+      <origin
+        xyz="0 1.9602E-16 -9.8879E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.019471" />
+      <inertia
+        ixx="4.07E-06"
+        ixy="8.5024E-21"
+        ixz="2.5762E-23"
+        iyy="2.7774E-06"
+        iyz="1.1729E-11"
+        izz="4.07E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Wheel_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.82353 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_with_wheel/meshes/Wheel_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel_joint_4"
+    type="continuous">
+    <origin
+      xyz="-0.0269 -0.030156 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link_6" />
+    <child
+      link="Wheel_4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="100" />
+  </joint>
+</robot>

@@ -1,0 +1,8 @@
+prefix=/home/apengse/APengse/Ros/ros_snake_like_robot/devel
+
+Name: cpg_hopf_control_1
+Description: Description of cpg_hopf_control_1
+Version: 0.0.0
+Cflags: -I/home/apengse/APengse/Ros/ros_snake_like_robot/devel/include
+Libs: -L/home/apengse/APengse/Ros/ros_snake_like_robot/devel/lib 
+Requires: message_runtime

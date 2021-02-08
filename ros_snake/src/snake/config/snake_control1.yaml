@@ -1,0 +1,50 @@
+snake:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  joints_position_controller:
+    type: position_controllers/JointGroupPositionController
+    joints: 
+      - Joint_1
+      - Joint_2
+      - Joint_3
+      - Joint_4
+      - Joint_5
+      - Joint_6
+      - Joint_7
+      - Joint_8
+      - Joint_9
+      - Joint_10
+      - Joint_11
+      - Joint_12
+      - Joint_13
+      - Joint_14
+      - Joint_15
+      - Joint_16
+      - Joint_17
+      - Joint_18
+      - Joint_19
+      - Joint_20
+
+  /gazebo_ros_control/pid_gains:
+    Joint_1: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_2: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_3: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_4: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_5: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_6: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_7: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_8: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_9: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_10: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_11: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_12: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_13: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_14: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_15: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_16: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_17: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_18: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_19: {p: 100.0, i: 0.01, d: 0.1}
+    Joint_20: {p: 100.0, i: 0.01, d: 0.1}

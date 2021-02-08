@@ -1,0 +1,8 @@
+prefix=/home/apengse/APengse/Ros/ros_snake_like_robot/devel
+
+Name: snake_simulate
+Description: Description of snake_simulate
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/apengse/APengse/Ros/ros_snake_like_robot/devel/lib 
+Requires: 

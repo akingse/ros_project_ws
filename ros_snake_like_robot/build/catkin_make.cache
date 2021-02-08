@@ -1,0 +1,2 @@
+cpg_hopf_control_1:snake_simulate
+-DCMAKE_BUILD_TYPE=Debug -DCATKIN_DEVEL_PREFIX=/home/apengse/APengse/Ros/ros_snake_like_robot/devel -DCMAKE_INSTALL_PREFIX=/home/apengse/APengse/Ros/ros_snake_like_robot/install -G Unix Makefiles

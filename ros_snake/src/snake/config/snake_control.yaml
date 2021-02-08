@@ -1,0 +1,85 @@
+snake:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  joint1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_1
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_2
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_3
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint4_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_4
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint5_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_5
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint6_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_6
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint7_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_7
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint8_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_8
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint9_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_9
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint10_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_10
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint11_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_11
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint12_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_12
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint13_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_13
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint14_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_14
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint15_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_15
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint16_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_16
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint17_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_17
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint18_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_18
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint19_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_19
+    pid: {p: 100.0, i: 0.01, d: 0.1}
+  joint20_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_20
+    pid: {p: 100.0, i: 0.01, d: 0.1}

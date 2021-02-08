@@ -1,0 +1,109 @@
+<launch>
+    <arg 
+        name="debug" 
+        default="false" />
+    <arg 
+        name="gui" 
+        default="true" />
+    <arg 
+        name="paused" 
+        default="false" />
+    <arg 
+        name="use_sim_time" 
+        default="true" />
+    <arg 
+        name="headless" 
+        default="false" />
+    <include
+        file="$(find gazebo_ros)/launch/empty_world.launch" >
+        <arg 
+            name="debug" 
+            value="$(arg debug)" />
+        <arg 
+            name="gui" 
+            value="$(arg gui)" />
+        <arg 
+            name="paused" 
+            value="$(arg paused)"/>
+        <arg 
+            name="use_sim_time" 
+            value="$(arg use_sim_time)"/>
+        <arg 
+            name="headless" 
+            value="$(arg headless)"/>
+    </include>
+    <arg 
+        name="model" 
+        default="$(find xacro)/xacro --inorder '$(find snake_simulate)/snake_with_wheel_xacro/snake_with_wheel.xacro'" />
+    <param 
+        name="robot_description" 
+        command="$(arg model)" />
+    <rosparam
+        file="$(find snake_simulate)/config/snake_simulate_control.yaml" 
+        command="load" />
+    <!--<node
+        name="snake_simulate_node_1_pub"
+        pkg="snake_simulate"
+        type="snake_simulate_node_1_pub" />-->
+    <node
+        name="tf_footprint_base"
+        pkg="tf"
+        type="static_transform_publisher"
+        args="0 0 0 0 0 0 base_link base_footprint 40" />
+    <node 
+        name="joint_state_publisher" 
+        pkg="joint_state_publisher" 
+        type="joint_state_publisher" />
+    <node 
+        name="robot_state_publisher" 
+        pkg="robot_state_publisher" 
+        type="robot_state_publisher"
+        respawn="false" 
+        output="screen">
+        <remap 
+            from="/joint_states" 
+            to="/snake_simulate/joint_states" />
+        </node>
+    <node 
+        name="controller_spawner" 
+        pkg="controller_manager" 
+        type="spawner" 
+        respawn="false"
+        output="screen" 
+        ns="/snake_simulate" 
+        args="
+        joint_state_controller
+        joint1_position_controller 
+        joint2_position_controller 
+        joint3_position_controller 
+        joint4_position_controller
+        joint5_position_controller 
+        joint6_position_controller 
+        joint7_position_controller 
+        joint8_position_controller
+        joint9_position_controller 
+        joint10_position_controller 
+        joint11_position_controller 
+        joint12_position_controller
+        joint13_position_controller 
+        joint14_position_controller 
+        joint15_position_controller 
+        joint16_position_controller
+        joint17_position_controller 
+        joint18_position_controller 
+        joint19_position_controller 
+        joint20_position_controller
+        " />
+    <node
+        name="spawn_model"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        respawn="false" 
+        args="-param robot_description -urdf -model snake_simulate"
+        output="screen" />
+    <node
+        name="fake_joint_calibration"
+        pkg="rostopic"
+        type="rostopic"
+        args="pub /calibrated std_msgs/Bool true" />
+</launch>

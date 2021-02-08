@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: snake
+    relative_path: urdf/snake.urdf
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/snake.srdf
+  CONFIG:
+    author_name: apengse
+    author_email: 2932805339@qq.com
+    generated_timestamp: 1577329514

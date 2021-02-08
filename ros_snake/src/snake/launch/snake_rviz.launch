@@ -1,0 +1,47 @@
+<launch>
+    <arg
+        name="gui"
+        default="true" />
+    <param
+        name="use_gui"
+        value="$(arg gui)" />
+    <arg
+        name="model" 
+        default="$(find xacro)/xacro --inorder '$(find snake)/snake_xacro/snake.xacro'" />
+    <param 
+        name="robot_description" 
+        command="$(arg model)" />
+    <!--rosparam
+        file="$(find snake)/config/snake_control.yaml" 
+        command="load" /-->
+    <node
+        name="tf_footprint_base"
+        pkg="tf"
+        type="static_transform_publisher"
+        args="0 0 0 0 0 0 base_link base_footprint 40" />
+    <node
+        name="joint_state_publisher"
+        pkg="joint_state_publisher"
+        type="joint_state_publisher" />
+    <node
+        name="robot_state_publisher"
+        pkg="robot_state_publisher"
+        type="state_publisher" />
+    <!--node 
+        name="controller_spawner" 
+        pkg="controller_manager" 
+        type="spawner" 
+        respawn="false"
+        output="screen" 
+        ns="/snake" 
+        args="
+        joint_state_controller
+        joints_position_controller 
+        " /-->
+    <node
+        name="rviz"
+        pkg="rviz"
+        type="rviz"
+        args="-d $(find snake)/urdf.rviz"
+        output="screen" />
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/apengse/APengse/Ros/ros_snake/install
+
+Name: snake
+Description: Description of snake
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/apengse/APengse/Ros/ros_snake/install/lib 
+Requires: 

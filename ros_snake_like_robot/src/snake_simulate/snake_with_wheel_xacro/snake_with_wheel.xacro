@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot name="snake_simulate" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="PI" value="3.1415926535897931" />
+    
+    <xacro:include filename="$(find snake_simulate)/snake_with_wheel_xacro/snake_with_wheel_head.xacro" />
+    <xacro:include filename="$(find snake_simulate)/snake_with_wheel_xacro/snake_with_wheel_orthogonal_joint.xacro" />
+    
+    <snake_with_wheel_head ID1="1" ID2="2" ID3="2" />
+    <snake_with_wheel_orthogonal_joint ID1="3" ID2="4" ID3="3" />
+    <snake_with_wheel_orthogonal_joint ID1="5" ID2="6" ID3="4" />
+    <snake_with_wheel_orthogonal_joint ID1="7" ID2="8" ID3="5" />
+    <snake_with_wheel_orthogonal_joint ID1="9" ID2="10" ID3="6" />
+    <snake_with_wheel_orthogonal_joint ID1="11" ID2="12" ID3="7" />
+    <snake_with_wheel_orthogonal_joint ID1="13" ID2="14" ID3="8" />
+    <snake_with_wheel_orthogonal_joint ID1="15" ID2="16" ID3="9" />
+    <snake_with_wheel_orthogonal_joint ID1="17" ID2="18" ID3="10" />
+    <snake_with_wheel_orthogonal_joint ID1="19" ID2="20" ID3="11" />
+
+    <gazebo>
+        <plugin filename="libgazebo_ros_control.so" name="ros_control">
+            <robotNamespace>/snake_simulate</robotNamespace>
+            <!--controlPeriod>0.001</controlPeriod-->
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <legacyModeNS>true</legacyModeNS>
+        </plugin>
+    </gazebo>
+
+</robot>
